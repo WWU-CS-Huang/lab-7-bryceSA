@@ -8,6 +8,28 @@ public class Huffman {
         return "Hello World!";
     }
 
+    //read in file
+    public static boolean[][] parseFile(File file){
+        try{
+            Scanner sc = new Scanner(file);
+            int getInt = Integer.parseInt(sc.nextLine());
+            int numNodes = getInt;
+            adj = new boolean[numNodes][numNodes];
+            //update adj matrix to true when nodes are connected. both ways because undirected
+            while (sc.hasNextInt()){
+                int cur = sc.nextInt();
+                int next = sc.nextInt();
+                adj[cur][next] = true;
+                adj[next][cur] = true;
+            }
+            sc.close();
+            return adj;
+        }catch(FileNotFoundException e){
+            e.printStackTrace();    
+        }
+        return null;
+    } 
+
     public static void main(String[] args) {
         System.out.println(new Huffman().getGreeting());
     }
