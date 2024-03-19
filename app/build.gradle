@@ -21,6 +21,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
+    
+    implementation files('libs/heap.jar')
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -32,5 +34,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'lab7.App'
+    mainClass = 'lab7.Huffman'
 }
